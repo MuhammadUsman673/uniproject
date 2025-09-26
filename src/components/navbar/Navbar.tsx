@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { Menu, Search, X } from "lucide-react";
+import {
+  // Menu,
+  Search,
+  X,
+} from "lucide-react";
 import { ExploreMenu } from "./navigation-menu";
-import { Button } from "../ui/button";
+// import { Button } from "../ui/button";
 
 // Import your filters
-import {Filters} from "../filters/courseFilters";
+import { Filters } from "../filters/courseFilters";
 import { ApprovalCard } from "../filters/ApproveCard";
 import { BudgetCard } from "../filters/BudgetCard";
 import { CSClickPickCard } from "../filters/clikcPickCard";
@@ -15,9 +19,9 @@ function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <header className="bg-white px-3 lg:px-6 py-4 lg:py-5 border my-4 lg:my-8 mx-2 rounded-2xl shadow-[0px_0px_15px_#b3b3b3]">
-        <div className="mx-auto flex items-center justify-between gap-4">
-          <div className="lg:hidden">
+      <header className="bg-white px-2 lg:px-6 py-4 lg:py-5 border  mx-3  rounded-2xl shadow-[0px_0px_8px_#c6c6c686]">
+        <div className="mx-auto flex items-center justify-between ">
+          {/* <div className="lg:hidden">
             <Button
               size={"icon"}
               variant={"ghost"}
@@ -25,16 +29,11 @@ function Navbar() {
             >
               <Menu />
             </Button>
-          </div>
+          </div> */}
 
           {/* Logo */}
-          <div className="relative mb-2">
-            <span className="text-xl lg:text-4xl text-red-600">
-              College<strong>sathi</strong>
-            </span>
-            <span className="absolute -bottom-2 lg:-bottom-3 right-0 text-sm lg:text-lg text-red-600">
-              .com
-            </span>
+          <div className="relative ">
+            <img src="/logo/main.svg" className="h-8" />
           </div>
 
           {/* Centered Menu */}
@@ -83,10 +82,7 @@ function Navbar() {
             setActiveSubFilter={() => {}}
             handleClearAll={() => {}}
           />
-          <BudgetCard
-            selectedBudget={null}
-            setSelectedBudget={() => {}}
-          />
+          <BudgetCard selectedBudget={null} setSelectedBudget={() => {}} />
           <ApprovalCard
             selectedApproval={null}
             setSelectedApproval={() => {}}
@@ -96,12 +92,12 @@ function Navbar() {
       </div>
 
       {/* Overlay */}
-      {isOpen && (
+      {/* {isOpen && (
         <div
           className="fixed inset-0 bg-black/40 z-40"
           onClick={() => setIsOpen(false)}
         />
-      )}
+      )} */}
     </>
   );
 }

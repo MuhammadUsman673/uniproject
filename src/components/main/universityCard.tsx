@@ -24,11 +24,11 @@ export function UniversityCard({
   logoUrl,
 }: UniversityCardProps) {
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-visible relative w-full border border-gray-200 flex flex-col">
+    <div className="bg-white rounded-2xl shadow-md overflow-visible relative w-full border border-gray-200 flex flex-col hover:scale-105 transition-all hover:shadow-[0px_0px_15px_#5c5c5c] ">
       {/* University Image */}
     
 
-      <div className="relative h-64 ">
+      <div className="relative h-64  ">
         <img
           src={imageUrl}
           alt={universityName}

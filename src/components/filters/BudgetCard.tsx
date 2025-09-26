@@ -26,19 +26,19 @@ export const BudgetCard = ({
       {budgets.map((budget) => (
         <div
           key={budget}
-          className="flex items-center p-1 cursor-pointer hover:bg-gray-100"
+          className="flex items-center p-1 cursor-pointer hover:bg-neutral-100 "
           onClick={() => handleBudgetClick(budget)}
         >
           <span
-            className={`w-3 h-3 rounded-full mr-2 border border-gray-400 flex items-center justify-center ${
-              selectedBudget === budget ? "bg-[#EC1E24]" : ""
+            className={`w-2.5 h-2.5 rounded-full mr-2 border border-[#EC1E24] flex items-center justify-center justify-center ${
+              selectedBudget === budget ? "bg-white" : ""
             }`}
           >
             {selectedBudget === budget && (
-              <span className="w-1 h-1 bg-white rounded-full"></span>
+              <span className="w-1.5 h-1.5 bg-[#EC1E24] rounded-full"></span>
             )}
           </span>
-          <span className="text-gray-700">{budget}</span>
+          <span className="text-[#282529]">{budget}</span>
         </div>
       ))}
     </CollapsibleCard>

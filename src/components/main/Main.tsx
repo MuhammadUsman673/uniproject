@@ -1,17 +1,11 @@
 import React, { useState } from "react";
 import { UniversityCard } from "./universityCard";
 import { Button } from "../ui/button";
-import { allUniversityCardsData, } from "@/store/uniCardData";
+import { allUniversityCardsData } from "@/store/uniCardData";
 import { Filters } from "../filters/courseFilters";
 import { BudgetCard } from "../filters/BudgetCard";
 import { ApprovalCard } from "../filters/ApproveCard";
 import { CSClickPickCard } from "../filters/clikcPickCard";
-
-// === CSClickPickCard Component ===
-
-
-// === ApprovalCard Component ===
-
 
 // === Main Component ===
 const Main = () => {
@@ -41,9 +35,9 @@ const Main = () => {
   });
 
   return (
-    <div className="flex  min-h-screen p-4 gap-4">
+    <div className="flex flex-col lg:flex-row  p-4 gap-10 mt-10">
       {/* Sidebar */}
-      <div className="w-64 hidden lg:block flex-shrink-0">
+      <div className="  w-full lg:w-64 lg:block ">
         <Filters
           activeFilter={activeFilter}
           setActiveFilter={setActiveFilter}
@@ -64,7 +58,7 @@ const Main = () => {
 
       {/* University Cards */}
       <div className="flex-grow">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-2 lg:gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-x-2 lg:gap-8 ">
           {filteredCards.slice(0, cardsToShow).map((card, index) => (
             <React.Fragment key={index}>
               <UniversityCard {...card} />
