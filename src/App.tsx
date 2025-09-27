@@ -1,13 +1,13 @@
-import Navbar from "@/components/navbar/Navbar";
-import Main from "@/components/main/Main";
-import Footer from "./components/main/footer";
+import Navbar from "@/components/navbar/navbar";
+import Main from "@/components/main/main";
+import Footer from "./components/footer/footer";
 import Legal from "./components/footer/legal";
-import BottomNavigationBar from "./components/navbar/BottomNavigation";
+import BottomNavigationBar from "./components/navbar/bottomNavigation";
 
 function App() {
   return (
     <div className="bg-neutral-100 relative">
-      <div className="container mx-auto py-4">
+      <div className="max-w-[1536px] mx-auto py-4">
         <Navbar />
         <div className="lg:px-6">
           <Main />

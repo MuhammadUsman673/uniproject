@@ -12,7 +12,7 @@ import {
 
 export function ExploreMenu() {
   return (
-    <NavigationMenu viewport={false}>
+    <NavigationMenu viewport={false} className="z-50">
       <NavigationMenuList className="flex gap-10">
         <NavigationMenuItem>
           <NavigationMenuTrigger className="border border-[#EC1E24] bg-[#FFF5f5] hover:bg-[#fbd3d3] text-[#282529] rounded-full text-">

@@ -1,15 +1,8 @@
+import { useFilters } from "@/contexts/filterContext";
 import { CollapsibleCard } from "./collapsebleCard";
 
-// === BudgetCard Component ===
-type BudgetCardProps = {
-  selectedBudget: string | null;
-  setSelectedBudget: (budget: string | null) => void;
-};
-
-export const BudgetCard = ({
-  selectedBudget,
-  setSelectedBudget,
-}: BudgetCardProps) => {
+export const BudgetCard = () => {
+  const { selectedBudget, setSelectedBudget } = useFilters();
   const budgets = [
     "Upto 1 Lakh",
     "1 Lakh - 2 Lakhs",
@@ -30,7 +23,7 @@ export const BudgetCard = ({
           onClick={() => handleBudgetClick(budget)}
         >
           <span
-            className={`w-2.5 h-2.5 rounded-full mr-2 border border-[#EC1E24] flex items-center justify-center justify-center ${
+            className={`w-2.5 h-2.5 rounded-full mr-2 border border-[#EC1E24] flex items-center  justify-center ${
               selectedBudget === budget ? "bg-white" : ""
             }`}
           >

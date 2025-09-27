@@ -1,38 +1,38 @@
 import { useState } from "react";
+import { Search } from "lucide-react";
+import { ExploreMenu } from "./navigationMenu";
 import {
-  // Menu,
-  Search,
-  X,
-} from "lucide-react";
-import { ExploreMenu } from "./navigation-menu";
-// import { Button } from "../ui/button";
-
-// Import your filters
-import { Filters } from "../filters/courseFilters";
-import { ApprovalCard } from "../filters/ApproveCard";
-import { BudgetCard } from "../filters/BudgetCard";
-import { CSClickPickCard } from "../filters/clikcPickCard";
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [query, setQuery] = useState("");
+
+  // mock search results
+  const data = [
+    "Harvard University",
+    "Stanford University",
+    "MIT",
+    "Oxford University",
+    "Cambridge University",
+    "UC Berkeley",
+  ];
+
+  const filtered = data.filter((item) =>
+    item.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
     <>
-      {/* Navbar */}
-      <header className="bg-white px-2 lg:px-6 py-4 lg:py-5 border  mx-3  rounded-2xl shadow-[0px_0px_8px_#c6c6c686]">
-        <div className="mx-auto flex items-center justify-between ">
-          {/* <div className="lg:hidden">
-            <Button
-              size={"icon"}
-              variant={"ghost"}
-              onClick={() => setIsOpen(true)}
-            >
-              <Menu />
-            </Button>
-          </div> */}
-
+      <header className="bg-white px-2 lg:px-6 py-4 lg:py-5 border mx-3 rounded-2xl shadow-[0px_0px_8px_#c6c6c686]">
+        <div className="mx-auto flex items-center justify-between">
           {/* Logo */}
-          <div className="relative ">
+          <div className="relative">
             <img src="/logo/main.svg" className="h-8" />
           </div>
 
@@ -51,7 +51,12 @@ function Navbar() {
               </span>
               9785-800-008
             </div>
-            <button className="flex items-center justify-center gap-2 hover:text-[#EC1E24] transition bg-[#FFF5F5] border border-[#EC1E24] rounded-full px-4 py-1.5">
+
+            {/* Search opens modal */}
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="flex items-center justify-center gap-2 hover:text-[#EC1E24] transition bg-[#FFF5F5] border border-[#EC1E24] rounded-full px-4 py-1.5"
+            >
               <span>Search</span>
               <Search size={20} className="font-extralight" />
             </button>
@@ -59,45 +64,42 @@ function Navbar() {
         </div>
       </header>
 
-      {/* Sidebar Drawer */}
-      <div
-        className={`fixed  top-0 left-0 h-full w-72 bg-white shadow-2xl border-r border-gray-200 z-50 transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        {/* Header */}
-        <div className="flex justify-between items-center p-4 border-b">
-          <h2 className="text-lg font-semibold text-gray-700">Filters</h2>
-          <button onClick={() => setIsOpen(false)}>
-            <X size={22} className="text-gray-600 hover:text-red-600" />
-          </button>
-        </div>
+      {/* Shadcn Search Modal */}
+      <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
+        <DialogContent className="sm:max-w-lg">
+          <DialogHeader>
+            <DialogTitle>Search Universities</DialogTitle>
+          </DialogHeader>
 
-        {/* Content */}
-        <div className="p-4 space-y-4 overflow-y-auto h-[calc(100%-60px)]">
-          <Filters
-            activeFilter={null}
-            setActiveFilter={() => {}}
-            activeSubFilter={null}
-            setActiveSubFilter={() => {}}
-            handleClearAll={() => {}}
-          />
-          <BudgetCard selectedBudget={null} setSelectedBudget={() => {}} />
-          <ApprovalCard
-            selectedApproval={null}
-            setSelectedApproval={() => {}}
-          />
-          <CSClickPickCard />
-        </div>
-      </div>
+          {/* Search Input */}
+          <div className="mt-2">
+            <Input
+              placeholder="Type to search..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              autoFocus
+            />
+          </div>
 
-      {/* Overlay */}
-      {/* {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/40 z-40"
-          onClick={() => setIsOpen(false)}
-        />
-      )} */}
+          {/* Search Results */}
+          <div className="mt-4 max-h-64 overflow-y-auto">
+            {filtered.length > 0 ? (
+              <ul className="space-y-2">
+                {filtered.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="p-2 border rounded-md hover:bg-red-50 cursor-pointer transition"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-gray-500 text-sm">No results found.</p>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

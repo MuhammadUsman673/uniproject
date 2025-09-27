@@ -36,7 +36,7 @@ export default function BottomNavigationBar() {
     >
       {/* Compare Now Button */}
       <div className="absolute -top-4 left-1/2 translate-x-[45%]">
-        <span className="bg-red-600 hover:bg-red-700 text-white px-2 py-0.5 rounded-full text-[8px] font-medium shadow-md transition-colors duration-200">
+        <span className="bg-[#EC1E24] hover:bg-[#EC1E24]] text-white px-2 py-0.5 rounded-full text-[8px] font-medium shadow-md transition-colors duration-200">
           ⚖ Compare Now
         </span>
       </div>
@@ -52,8 +52,8 @@ export default function BottomNavigationBar() {
 
           {/* Call */}
           <div className="flex flex-col items-center flex-1 transition-transform hover:scale-105">
-            <Phone size={20} className="text-red-500" />
-            <span className="text-[10px] text-red-500 font-medium">Call</span>
+            <Phone size={20} className="text-[#EC1E24]" />
+            <span className="text-[10px] text-[#EC1E24]] font-medium">Call</span>
           </div>
 
           {/* Chat */}

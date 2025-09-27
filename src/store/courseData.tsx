@@ -1,7 +1,7 @@
 import { GraduationCap } from "lucide-react"; // Generic data structure - any filter can have sub-items
 export const courseData = {
   "PG Courses": {
-    icon: <GraduationCap />,
+    icon: <GraduationCap strokeWidth={"1px"} />,
     subItems: ["MBA", "M.Com", "MCA", "M.Sc", "MA"],
     specializations: {
       MBA: [
@@ -26,7 +26,7 @@ export const courseData = {
     } as { [key: string]: string[] },
   },
   "UG Courses": {
-    icon: <GraduationCap />,
+    icon: <GraduationCap strokeWidth={"1px"} />,
     subItems: [
       "BBA",
       "B.Com",
@@ -69,7 +69,7 @@ export const courseData = {
     } as { [key: string]: string[] },
   },
   "Executive Programs": {
-    icon: <GraduationCap />,
+    icon: <GraduationCap strokeWidth={"1px"} />,
     subItems: [
       "Leadership Development",
       "Strategic Management",
@@ -90,7 +90,7 @@ export const courseData = {
     } as { [key: string]: string[] },
   },
   Certification: {
-    icon: <GraduationCap />,
+    icon: <GraduationCap strokeWidth={"1px"} />,
     specializations: {} as { [key: string]: string[] },
     subItems: [
       "Professional Certificates",
@@ -99,7 +99,7 @@ export const courseData = {
     ],
   },
   "Doctorate/Ph.D": {
-    icon: <GraduationCap />,
+    icon: <GraduationCap strokeWidth={"1px"} />,
     specializations: {} as { [key: string]: string[] },
     subItems: [
       "Management",

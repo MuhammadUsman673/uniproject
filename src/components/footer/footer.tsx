@@ -30,7 +30,7 @@ const SocialIcon = ({
   return (
     <a
       href={social.href}
-      className="text-neutral-200 bg-red-600 p-1.5 md:p-2 rounded-full"
+      className="text-neutral-200 bg-[#EC1E24] p-1.5 md:p-2 rounded-full"
       aria-label={social.label}
     >
       <Icon className="h-4 w-4 lg:h-6 lg:w-6" />
@@ -45,7 +45,7 @@ const NavigationSection = ({
 }) => (
   <div>
     <h3 className="text-white font-bold mb-4">{section.title}</h3>
-    <hr className="border-red-500 border-2 w-50" />
+    <hr className="border-[#EC1E24] border-2 w-50" />
     <ul className="space-y-3 grid grid-cols-2 mt-3">
       {section.links.map((link, index) => (
         <li key={index}>
@@ -89,7 +89,7 @@ const ProgramSection = ({
 
 const TrustpilotRating = () => (
   <div className="flex items-center space-x-0 bg-white w-fit text-black p-2 pr-10 rounded-xl">
-    <div className="text-green-700 text-4xl lg:text-6xl p-1 rounded">★</div>
+    <div className="text-green-700 text-4xl xl:text-6xl p-1 rounded">★</div>
     <span className="font-semibold mt-1 text-2xl lg:text-4xl">
       {FOOTER_CONFIG.contact.trustpilot.text}
     </span>

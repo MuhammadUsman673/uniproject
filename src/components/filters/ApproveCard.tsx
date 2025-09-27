@@ -1,14 +1,8 @@
+import { useFilters } from "@/contexts/filterContext";
 import { CollapsibleCard } from "./collapsebleCard";
 
-type ApprovalCardProps = {
-  selectedApproval: string | null;
-  setSelectedApproval: (approval: string | null) => void;
-};
-
-export const ApprovalCard = ({
-  selectedApproval,
-  setSelectedApproval,
-}: ApprovalCardProps) => {
+export const ApprovalCard = () => {
+  const { selectedApproval, setSelectedApproval } = useFilters();
   const approvals = ["UGC", "NAAC", "AICTE", "NIRF", "WES", "DEB"];
 
   const handleApprovalClick = (approval: string) => {
@@ -24,7 +18,7 @@ export const ApprovalCard = ({
           onClick={() => handleApprovalClick(approval)}
         >
           <span
-            className={`w-2.5 h-2.5 rounded-full mr-2 border border-[#EC1E24] flex items-center justify-center justify-center ${
+            className={`w-2.5 h-2.5 rounded-full mr-2 border border-[#EC1E24] flex items-center justify-center ${
               selectedApproval === approval ? "bg-white" : ""
             }`}
           >
