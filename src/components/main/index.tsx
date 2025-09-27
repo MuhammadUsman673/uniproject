@@ -182,7 +182,7 @@ const Main = () => {
       </div>
 
       {/* University Cards */}
-      <div className="flex-grow">
+      <div className="flex-grow lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-x-2 lg:gap-8">
           {filteredCards.slice(0, cardsToShow).map((card, index) => (
             <React.Fragment key={index}>
