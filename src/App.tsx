@@ -1,6 +1,6 @@
-import Navbar from "@/components/navbar/navbar";
-import Main from "@/components/main/main";
-import Footer from "./components/footer/footer";
+import Navbar from "@/components/navbar";
+import Main from "@/components/main";
+import Footer from "./components/footer";
 import Legal from "./components/footer/legal";
 import BottomNavigationBar from "./components/navbar/bottomNavigation";
 
