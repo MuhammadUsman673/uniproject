@@ -5,7 +5,7 @@ import "./App.css";
 
 import App from "./App";
 import { FilterProvider } from "./contexts/filterContext";
-import { BrowserRouter } from "react-router-dom";
+import {  HashRouter } from "react-router-dom";
 import { CompareProvider } from "./contexts/compareContext";
 
 const rootElement = document.getElementById("root");
@@ -14,9 +14,9 @@ if (rootElement) {
     <StrictMode>
       <FilterProvider>
         <CompareProvider>
-          <BrowserRouter>
+          <HashRouter>
             <App />
-          </BrowserRouter>
+          </HashRouter>
         </CompareProvider>
       </FilterProvider>
     </StrictMode>
