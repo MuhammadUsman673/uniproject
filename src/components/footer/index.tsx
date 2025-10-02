@@ -1,23 +1,28 @@
 import { StarIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { FOOTER_CONFIG } from "@/store/footer";
+import { Link } from "react-router-dom";
 
 // Reusable components
 const ActionButton = ({
   button,
+  path,
 }: {
   button: (typeof FOOTER_CONFIG.header.buttons)[0];
+  path: string;
 }) => {
   const Icon = button.icon;
   return (
-    <Button
-      size="lg"
-      variant={button.variant}
-      className={`lg:text-lg lg:w-64 md:py-8 lg:py-10 rounded-lg lg:rounded-3xl flex items-center justify-center ${button.className}`}
-    >
-      <Icon />
-      <span>{button.text}</span>
-    </Button>
+    <Link to={path}>
+      <Button
+        size="lg"
+        variant={button.variant}
+        className={`lg:text-lg lg:w-64 md:py-8 lg:py-10 rounded-lg lg:rounded-3xl flex items-center justify-center ${button.className}`}
+      >
+        <Icon />
+        <span>{button.text}</span>
+      </Button>
+    </Link>
   );
 };
 
@@ -127,7 +132,11 @@ export default function Footer() {
             <ActionButton key={button.id} button={button} />
           ))}
         </div>
-        <img src="/Shape.svg" alt="" className="absolute w-full h-full -top-5 left-0" />
+        <img
+          src="/Shape.svg"
+          alt=""
+          className="absolute w-full h-full -top-5 left-0"
+        />
       </header>
 
       {/* Main Content */}

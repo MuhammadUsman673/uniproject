@@ -18,6 +18,7 @@ export const FOOTER_CONFIG = {
         icon: ClipboardCheck,
         variant: "outline" as const,
         className: "bg-transparent",
+        path:"/compare"
       },
       {
         id: "call-now",
@@ -25,6 +26,7 @@ export const FOOTER_CONFIG = {
         icon: PhoneCall,
         variant: "default" as const,
         className: "bg-red-600 hover:bg-red-500",
+        path:"/pop-up"
       },
     ],
   },
