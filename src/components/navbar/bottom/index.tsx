@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Home, Phone, MessageCircle, Building2, UserCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function BottomNavigationBar() {
   const [hidden, setHidden] = useState(false);
@@ -62,9 +63,9 @@ export default function BottomNavigationBar() {
               Universities
             </span>
             {/* Compare Now Button */}
-            <div className="absolute -top-6 ">
+            <div className="absolute -top-6 w-22 ">
               <span className="bg-[#EC1E24] hover:bg-[#EC1E24]] text-white px-2 py-0.5 rounded-full text-[8px] font-medium shadow-md transition-colors duration-200">
-                ⚖ Compare Now
+                <Link to={"/comp"}>⚖ Compare Now</Link>
               </span>
             </div>
           </div>
@@ -73,7 +74,9 @@ export default function BottomNavigationBar() {
           <div className="flex flex-col items-center flex-1 transition-transform hover:scale-105">
             <UserCheck size={20} className="text-neutral-600" />
             <span className="text-[10px] text-neutral-600 font-medium">
+           <Link to={"/pop-up"}>
               Guidance
+           </Link>
             </span>
           </div>
         </div>

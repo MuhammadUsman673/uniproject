@@ -9,6 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { Link } from "react-router-dom";
 
 export function ExploreMenu() {
   return (
@@ -48,10 +49,10 @@ export function ExploreMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <a href="#">Top Universities</a>
+          <Link to={"/comp"}>Top Universities</Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <a href="#">CikPick</a>
+          <Link to={"/pop-up"}>CikPick</Link>
         </NavigationMenuItem>
              <NavigationMenuItem>
           <NavigationMenuTrigger >
