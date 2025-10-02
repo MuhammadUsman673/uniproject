@@ -17,7 +17,7 @@ export const CollapsibleCard = ({ title, children }: CollapsibleCardProps) => {
         className="flex justify-between items-center cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h2 className="text-lg text-[#282529]/80  ">{title}</h2>
+        <h2 className="text-[0.875rem] text-[#282529]/80  ">{title}</h2>
         <span
           className={`text-[#282529] transform transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""

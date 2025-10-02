@@ -31,7 +31,7 @@ export const BudgetCard = () => {
               <span className="w-1.5 h-1.5 bg-[#EC1E24] rounded-full"></span>
             )}
           </span>
-          <span className="text-[#282529]">{budget}</span>
+          <span className="text-[#282529] text-[0.875rem]">{budget}</span>
         </div>
       ))}
     </CollapsibleCard>

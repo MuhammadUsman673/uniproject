@@ -33,7 +33,6 @@ const Main = () => {
 
   // Fixed Main.tsx - University Cards filtering logic
   const filteredCards = allUniversityCardsData.filter((card) => {
-   
     // Apply category filter first
     if (activeFilter && card.category !== activeFilter) return false;
 
@@ -106,7 +105,7 @@ const Main = () => {
   }, [isMobile, isTablet]);
 
   return (
-    <div className="flex flex-col lg:flex-row p-4 gap-b-10 lg:mt-10">
+    <div className="max-w-7xl mx-auto flex flex-col lg:flex-row p-4 gap-b-10 lg:mt-10">
       {/* Sidebar */}
       <div className={"w-full lg:w-64 lg:block"}>
         <div className="flex justify-between items-center mb-4 p-2">
@@ -182,11 +181,11 @@ const Main = () => {
       </div>
 
       {/* University Cards */}
-      <div className="flex-grow lg:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-x-2 lg:gap-8">
+      <div className="mx-auto lg:mt-0 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  xl:grid-cols-3 gap-8 md:gap-6 lg:gap-6">
           {filteredCards.slice(0, cardsToShow).map((card, index) => (
             <React.Fragment key={index}>
-              <UniversityCard {...card} />
+              <UniversityCard {...card} index={index} />
               {(index + 1) % rowCount === 0 &&
                 index !== filteredCards.slice(0, cardsToShow).length - 1 && (
                   <div className="col-span-full border-b border-gray-300 my-4"></div>
@@ -201,7 +200,7 @@ const Main = () => {
             <Button
               size="lg"
               onClick={handleViewMore}
-              className="bg-[#EC1E24] text-white px-10 rounded-full hover:bg-[#EC1E24] transition font-semibold"
+              className="bg-[#EC1E24] text-white h-[29px] w-[130px] text-sm rounded-full hover:bg-[#EC1E24] transition font-semibold"
             >
               View More &gt;
             </Button>

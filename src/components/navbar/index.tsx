@@ -29,7 +29,7 @@ function Navbar() {
 
   return (
     <>
-      <header className="bg-white px-2 lg:px-6 py-4 lg:py-5 border mx-3 rounded-2xl shadow-[0px_0px_8px_#c6c6c686]">
+      <header className=" max-w-[1276px] lg:mx-auto  mx-3 bg-white px-2 lg:px-6 py-4 lg:py-5 border  rounded-2xl shadow-[0px_0px_8px_#c6c6c686]">
         <div className="mx-auto flex items-center justify-between">
           {/* Logo */}
           <div className="relative">

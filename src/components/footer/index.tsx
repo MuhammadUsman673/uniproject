@@ -116,7 +116,7 @@ export default function Footer() {
   return (
     <div className="max-w-[1536px] mx-auto text-neutral-200 py-10 ">
       {/* Header Section */}
-      <header className="flex flex-row justify-between rounded-2xl items-center h-40 lg:h-52 px-2 md:px-4 lg:px-10 bg-[#192E50] bg-opacity-90 mx-4 lg:mx-4">
+      <header className="flex flex-row justify-between overflow-hidden relative rounded-2xl items-center h-40 lg:h-52 px-2 md:px-4 lg:px-10 bg-[#192E50] bg-opacity-90 mx-4 lg:mx-4">
         <div className="flex items-center">
           <h1 className="ml-2 text-2xl md:text-3xl lg:text-5xl font-semibold">
             {header.title}
@@ -127,6 +127,7 @@ export default function Footer() {
             <ActionButton key={button.id} button={button} />
           ))}
         </div>
+        <img src="/Shape.svg" alt="" className="absolute w-full h-full -top-5 left-0" />
       </header>
 
       {/* Main Content */}

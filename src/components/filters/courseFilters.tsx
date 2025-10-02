@@ -96,7 +96,7 @@ export const Filters = () => {
     });
 
     return (
-      <div className="space-y-2">
+      <div className="space-y-2 ">
         {filtered.map((filter, index) => {
           const filterKey = filter.name as keyof typeof courseData;
           const isExpanded = expandedFilters.has(filter.name);
@@ -113,8 +113,8 @@ export const Filters = () => {
                 )}
                 onClick={() => handleFilterClick(filter.name)}
               >
-                <span className="text-lg ">{filter.icon}</span>
-                <span className="text-base flex-1">{filter.name}</span>
+                <span className="text-[1rem] ">{filter.icon}</span>
+                <span className="text-[0.875rem] flex-1">{filter.name}</span>
               </div>
 
               {filter.hasSubItems && (
@@ -128,8 +128,8 @@ export const Filters = () => {
                 >
                   <div className="bg-gray-50 rounded-xl p-2 space-y-1">
                     {subItems.map((subItem) => {
-                      const hasSpecializations =
-                        courseData[filterKey]?.specializations?.[subItem];
+                      // const hasSpecializations =
+                      //   courseData[filterKey]?.specializations?.[subItem];
 
                       return (
                         <div
@@ -156,13 +156,13 @@ export const Filters = () => {
                               <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                             )}
                           </div>
-                          <span className="flex-1">{subItem}</span>
-                          {hasSpecializations && (
+                          <span className="flex-1 text-[0.875rem] text-[#282529]">{subItem}</span>
+                          {/* {hasSpecializations && (
                             <ChevronLeft
                               size={14}
                               className="rotate-180 text-gray-400"
                             />
-                          )}
+                          )} */}
                         </div>
                       );
                     })}
@@ -196,7 +196,7 @@ export const Filters = () => {
         {specializations.map((specialization: string, index: number) => (
           <div key={index} className="relative px-4">
             <div
-              className="flex items-center gap-3 hover:bg-neutral-100 cursor-pointer"
+              className="flex items-center gap-3 hover:bg-neutral-100 cursor-pointer text-[0.875rem]"
               onClick={() => handleSpecializationClick(specialization)}
             >
               <span
@@ -205,7 +205,7 @@ export const Filters = () => {
                   activeSubFilter === specialization ? "bg-[#EC1E24]" : ""
                 )}
               />
-              <span>{specialization}</span>
+              <span className="text-[#8F8E90]">{specialization}</span>
             </div>
           </div>
         ))}
@@ -215,8 +215,8 @@ export const Filters = () => {
 
   return (
     <div className="shadow-md transition-all duration-500">
-      <div className="bg-gradient-to-b from-white to-[#EFEFEF] shadow-md shadow-neutral-200 rounded-md py-4">
-        <div className="flex gap-2 justify-center items-center text-neutral-600 text-lg mb-4">
+      <div className="bg-gradient-to-b from-white to-[#EFEFEF] shadow-md shadow-neutral-200 rounded-md py-4 w-full">
+        <div className="flex gap-2 justify-center items-center text-neutral-600 text-[0.875rem] mb-4">
           {currentView === "details" && (
             <button
               onClick={handleBack}
@@ -244,7 +244,7 @@ export const Filters = () => {
           />
         </div>
             
-        <div className="pb-6 relative overflow-hidden">
+        <div className="pb-6 relative overflow-hidden ">
           {currentView === "main" ? <MainView /> : <DetailsView />}
         </div>
       </div>

@@ -12,13 +12,13 @@ import {
 
 export function ExploreMenu() {
   return (
-    <NavigationMenu viewport={false} className="z-50">
+    <NavigationMenu viewport={false} className="z-[9999]">
       <NavigationMenuList className="flex gap-10">
         <NavigationMenuItem>
           <NavigationMenuTrigger className="border border-[#EC1E24] bg-[#FFF5f5] hover:bg-[#fbd3d3] text-[#282529] rounded-full text-">
             Explore Programs
           </NavigationMenuTrigger>
-          <NavigationMenuContent>
+          <NavigationMenuContent className="">
             <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>

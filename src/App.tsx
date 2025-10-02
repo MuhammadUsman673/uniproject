@@ -1,25 +1,14 @@
-import Navbar from "@/components/navbar";
-import Main from "@/components/main";
-import Footer from "./components/footer";
-import Legal from "./components/footer/legal";
-import BottomNavigationBar from "@/components/navbar/bottom";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/home";
+import ComparePage from "./pages/compare";
+import NMIMSPopup from "./pages/pop-up";
 
-function App() {
+export default function App() {
   return (
-    <div className="bg-neutral-100 relative">
-      <div className="max-w-[1536px] mx-auto py-4">
-        <Navbar />
-        <div className="lg:px-6">
-          <Main />
-        </div>
-      </div>
-      <div className="bg-[#001136]">
-        <Footer />
-        <Legal />
-      </div>
-        <BottomNavigationBar />
-    </div>
+    <Routes>
+      <Route index element={<Home />} />
+      <Route path="compare" element={<ComparePage />} />
+      <Route path="pop-up" element={<NMIMSPopup />} />
+    </Routes>
   );
 }
-
-export default App;
