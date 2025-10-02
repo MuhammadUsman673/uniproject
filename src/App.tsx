@@ -7,7 +7,7 @@ export default function App() {
   return (
     <Routes>
       <Route index element={<Home />} />
-      <Route path="compare" element={<ComparePage />} />
+      <Route path="comp" element={<ComparePage />} />
       <Route path="pop-up" element={<NMIMSPopup />} />
     </Routes>
   );

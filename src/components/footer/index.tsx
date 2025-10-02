@@ -127,9 +127,9 @@ export default function Footer() {
             {header.title}
           </h1>
         </div>
-        <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-4">
+        <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-4 z-[999]">
           {header.buttons.map((button) => (
-            <ActionButton key={button.id} button={button} />
+            <ActionButton key={button.id} button={button} path={button.path} />
           ))}
         </div>
         <img

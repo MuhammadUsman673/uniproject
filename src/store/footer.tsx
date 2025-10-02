@@ -18,7 +18,7 @@ export const FOOTER_CONFIG = {
         icon: ClipboardCheck,
         variant: "outline" as const,
         className: "bg-transparent",
-        path:"/compare"
+        path:"/comp"
       },
       {
         id: "call-now",
