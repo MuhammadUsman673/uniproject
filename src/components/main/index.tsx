@@ -15,6 +15,8 @@ const Main = () => {
   const { isMobile, isTablet } = useResponsive();
   const [rowCount, setRowCount] = useState(3);
 
+
+
   const {
     activeFilter,
     activeSubFilter,
@@ -27,6 +29,7 @@ const Main = () => {
     handleClearAll,
     searchQuery,
     setSearchQuery,
+
   } = useFilters();
 
   const handleViewMore = () => setCardsToShow((prev) => prev + 9);

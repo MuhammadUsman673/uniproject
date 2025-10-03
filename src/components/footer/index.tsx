@@ -15,7 +15,7 @@ const ActionButton = ({
     <Button
       size="lg"
       variant={button.variant}
-      className={`lg:text-lg lg:w-64 md:py-8 lg:py-10 rounded-lg lg:rounded-3xl flex items-center justify-center ${button.className}`}
+      className={`text-xs md:text-base z-[999] w-[146px] h-[33px] lg:text-lg lg:w-70 md:w-52 md:h-[4rem] lg:h-[5rem]   rounded-lg lg:rounded-3xl flex items-center justify-center ${button.className}`}
     >
       <Icon />
       <span>{button.text}</span>
@@ -90,12 +90,9 @@ const ProgramSection = ({
 );
 
 const TrustpilotRating = () => (
-  <div className="flex items-center space-x-0 bg-white w-fit text-black p-2 pr-10 rounded-xl">
-    <div className="text-green-700 text-4xl xl:text-6xl p-1 rounded">★</div>
-    <span className="font-semibold mt-1 text-2xl lg:text-4xl">
-      {FOOTER_CONFIG.contact.trustpilot.text}
-    </span>
-    <span className="h-7 w-fit px-2 ml-5 items-center bg-neutral-800 flex text-white gap-2">
+  <div className="flex items-center space-x-0 bg-white w-[244px] h-[62px] text-black p-2 pr-10 rounded-xl">
+   <img src="/logo/trustpilot.svg"/>
+    <span className="h-[24px] w-[48px]  text-xs  ml-5 px-1  items-center bg-neutral-800 flex text-white gap-2">
       {FOOTER_CONFIG.contact.trustpilot.rating}
       <StarIcon size={18} color="transparent" fill="#FBD033" />
     </span>
@@ -114,13 +111,14 @@ const HelplineNumber = () => (
 export default function Footer() {
   const { header, contact, navigation, programs, specializations } =
     FOOTER_CONFIG;
+    
 
   return (
     <div className="max-w-[1536px] mx-auto text-neutral-200 py-10 ">
       {/* Header Section */}
-      <header className="flex flex-row justify-between overflow-hidden relative rounded-2xl items-center h-40 lg:h-52 px-2 md:px-4 lg:px-10 bg-[#192E50] bg-opacity-90 mx-4 lg:mx-4">
+      <header className="flex flex-row justify-between overflow-hidden relative rounded-2xl items-center h-[6.8rem] md:h-[10.5rem] lg:h-[13.3rem] px-2 md:px-4 lg:px-10 bg-[#192E5D] bg-opacity-90 mx-4 lg:mx-4">
         <div className="flex items-center">
-          <h1 className="ml-2 text-2xl md:text-3xl lg:text-5xl font-semibold">
+          <h1 className="ml-2 text-[1.25rem] md:text-3xl lg:text-5xl font-semibold">
             {header.title}
           </h1>
         </div>
@@ -132,7 +130,12 @@ export default function Footer() {
         <img
           src="/Shape.svg"
           alt=""
-          className="absolute w-full h-full -top-5 left-0"
+          className="hidden md:block absolute w-full left-0 h-[212px]"
+        />
+        <img
+          src="/Shape-M.svg"
+          alt=""
+          className="md:hidden absolute w-full h-[200px] -top-12 left-0"
         />
       </header>
 

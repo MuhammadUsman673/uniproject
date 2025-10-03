@@ -9,7 +9,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useCompare } from "@/contexts/compareContext";
 
 export default function ComparePage() {
-  const { currentStep } = useCompare();
+  const {
+    currentStep,
+    selectedCourse,
+    selectedPath,
+    selectedUniversity,
+    selectedSpecialization,
+  } = useCompare();
 
   const renderSection = () => {
     switch (currentStep) {
@@ -45,10 +51,24 @@ export default function ComparePage() {
           <div className="grid lg:grid-cols-2 gap-8 items-start mb-16">
             {/* Left Side - Illustration Card */}
             <div className="hidden lg:block z-30 absolute top-76 left-24">
-              {currentStep == "path" && <img src="/images/compare-bg-2.png" />}
-              {currentStep == "course" && <img src="/images/cmp1.png" />}
-              {currentStep == "specialization" && <img src="/images/cmp-4.png" />}
-              {currentStep == "compare" && <img src="/images/cmp-3.png" />}
+              {(() => {
+                if (currentStep === "path" && selectedPath) {
+                  return <img src="/images/cmp1.png" alt="Path" />;
+                }
+                if (currentStep === "course" && selectedCourse) {
+                  return <img src="/images/cmp-2.png" alt="Course" />;
+                }
+                if (
+                  currentStep === "specialization" &&
+                  selectedSpecialization
+                ) {
+                  return <img src="/images/cmp-4.png" alt="Specialization" />;
+                }
+                if (currentStep === "compare" && selectedUniversity) {
+                  return <img src="/images/cmp-3.png" alt="Compare" />;
+                }
+                return <img src="/images/compare-bg-2.png" alt="Default" />;
+              })()}
             </div>
 
             {/*  */}
@@ -421,26 +441,39 @@ export function CompareSection() {
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-2 gap-2">
-            {universities.map((path) => (
-              <Card
-                key={path.id}
-                className={`cursor-pointer transition-all shadow-none py-8 ${
-                  selectedUniversity === path.id
-                    ? "border-2 border-[#B8B8B8] "
-                    : "border-2  border-[#B8B8B8] "
-                }`}
-                onClick={() => setSelectedUniversity(path.id)}
-              >
-                <CardContent className="relative grid place-content-center text-center h-[3.5rem]  py-1 ">
-                  <img src={path.icon} className="mx-auto " />
-                  <Checkbox
-                    checked={selectedUniversity === path.id}
-                    onCheckedChange={() => setSelectedUniversity(path.id)}
-                    className="absolute -top-4 right-2"
-                  />
-                </CardContent>
-              </Card>
-            ))}
+            {universities.map((path) => {
+              const isSelected = selectedUniversity.includes(path.id);
+
+              return (
+                <Card
+                  key={path.id}
+                  className={`cursor-pointer transition-all shadow-none py-8 ${"border-2 border-[#B8B8B8]"}`}
+                  onClick={() => {
+                    setSelectedUniversity(
+                      (prev) =>
+                        prev.includes(path.id)
+                          ? prev.filter((id) => id !== path.id) // remove if already selected
+                          : [...prev, path.id] // add if not selected
+                    );
+                  }}
+                >
+                  <CardContent className="relative grid place-content-center text-center h-[3.5rem] py-1">
+                    <img src={path.icon} className="mx-auto" />
+                    <Checkbox
+                      checked={isSelected}
+                      onCheckedChange={() =>
+                        setSelectedUniversity((prev) =>
+                          prev.includes(path.id)
+                            ? prev.filter((id) => id !== path.id)
+                            : [...prev, path.id]
+                        )
+                      }
+                      className="absolute -top-4 right-2"
+                    />
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
 
           <div className="flex gap-2 w-full">

@@ -96,7 +96,7 @@ export const Filters = () => {
     });
 
     return (
-      <div className="space-y-2 ">
+      <div className="space-y-1">
         {filtered.map((filter, index) => {
           const filterKey = filter.name as keyof typeof courseData;
           const isExpanded = expandedFilters.has(filter.name);
@@ -106,7 +106,7 @@ export const Filters = () => {
             <div key={index} className="relative px-2">
               <div
                 className={clsx(
-                  "flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer transition-all duration-300",
+                  "flex items-center gap-2 px-4 py-1 rounded-full cursor-pointer transition-all duration-300",
                   activeFilter === filter.name
                     ? "bg-[#EC1E24] text-white scale-[1.02]"
                     : "text-[#282529] hover:scale-[1.02]"
@@ -120,13 +120,14 @@ export const Filters = () => {
               {filter.hasSubItems && (
                 <div
                   className={clsx(
-                    "overflow-hidden transition-all duration-500 ease-out",
+                    "overflow-hidden relative  transition-all duration-500 ease-out",
                     isExpanded
                       ? "max-h-96 opacity-100 mt-2"
                       : "max-h-0 opacity-0"
                   )}
                 >
-                  <div className="bg-gray-50 rounded-xl p-2 space-y-1">
+                  <div className=" absolute h-[calc(100%-37px)] left-6 w-0.5 bg-[#CECECE] mt-4.5 z-10" />
+                  <div className="rounded-xl p-2 space-y-1">
                     {subItems.map((subItem) => {
                       // const hasSpecializations =
                       //   courseData[filterKey]?.specializations?.[subItem];
@@ -135,10 +136,10 @@ export const Filters = () => {
                         <div
                           key={subItem}
                           className={clsx(
-                            "flex items-center gap-3 px-6 py-1 cursor-pointer",
+                            "flex items-center gap-3 pr-6  pl-[15px]  py-1 cursor-pointer",
                             activeSubFilter === subItem
-                              ? "bg-neutral-100 text-red-600 border-l-4 border-red-500"
-                              : "text-neutral-700 hover:bg-neutral-100"
+                              ? " text-red-600 "
+                              : "text-neutral-700 "
                           )}
                           onClick={() =>
                             handleSubItemClick(subItem, filter.name)
@@ -146,23 +147,25 @@ export const Filters = () => {
                         >
                           <div
                             className={clsx(
-                              "w-3 h-3 rounded-full border-2 flex items-center justify-center",
+                              "w-1 h-4 z-20  flex items-center justify-center rounded-4xl",
                               activeSubFilter === subItem
-                                ? "border-[#EC1E24]] bg-[#EC1E24]"
+                                ? "bg-[#EC1E24]"
                                 : "border-[#EC1E24]"
                             )}
-                          >
-                            {activeSubFilter === subItem && (
-                              <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                          />
+                          <span className="w-1"></span>
+                          <div
+                            className={clsx(
+                              "w-2 h-2 rounded-full border-[2px] flex items-center justify-center",
+                              activeSubFilter === subItem
+                                ? "border-[#EC1E24] "
+                                : "border-[#aaaaaa] "
                             )}
-                          </div>
-                          <span className="flex-1 text-[0.875rem] text-[#282529]">{subItem}</span>
-                          {/* {hasSpecializations && (
-                            <ChevronLeft
-                              size={14}
-                              className="rotate-180 text-gray-400"
-                            />
-                          )} */}
+                          />
+
+                          <span className="flex-1 text-[0.875rem] text-[#282529]">
+                            {subItem}
+                          </span>
                         </div>
                       );
                     })}
@@ -183,7 +186,6 @@ export const Filters = () => {
     const specializations =
       courseData[filterKey]?.specializations?.[selectedItem] || [];
 
-
     return (
       <div
         className={clsx(
@@ -193,19 +195,35 @@ export const Filters = () => {
             : "opacity-100 translate-x-0"
         )}
       >
-        {specializations.map((specialization: string, index: number) => (
-          <div key={index} className="relative px-4">
+        <div className="flex flex-col gap-3  px-7">
+          <div className="flex items-center gap-1  cursor-pointer text-[0.875rem]">
             <div
-              className="flex items-center gap-3 hover:bg-neutral-100 cursor-pointer text-[0.875rem]"
+              className={clsx(
+                "w-2 h-2 rounded-full border-[2px] mr-2 flex items-center justify-center",
+                "border-[#EC1E24] "
+              )}
+            />
+            <span className="text-[#8F8E90]">{selectedItem}</span>
+          </div>
+          <hr />
+        </div>
+
+        {specializations.map((specialization: string, index: number) => (
+          <div key={index} className="relative px-7">
+            <div
+              className="flex items-center gap-3  cursor-pointer text-[0.875rem]"
               onClick={() => handleSpecializationClick(specialization)}
             >
-              <span
+              <div
                 className={clsx(
-                  "w-2.5 h-2.5 rounded-full mr-2 border border-[#EC1E24] flex items-center justify-center",
-                  activeSubFilter === specialization ? "bg-[#EC1E24]" : ""
+                  "w-2 h-2 rounded-full border-[2px] flex items-center justify-center",
+                  activeSubFilter === specialization
+                    ? "border-[#EC1E24] "
+                    : "border-[#aaaaaa] "
                 )}
               />
-              <span className="text-[#8F8E90]">{specialization}</span>
+
+              <span className="text-[#5e5e5f]">{specialization}</span>
             </div>
           </div>
         ))}
@@ -215,19 +233,17 @@ export const Filters = () => {
 
   return (
     <div className="shadow-md transition-all duration-500">
-      <div className="bg-gradient-to-b from-white to-[#EFEFEF] shadow-md shadow-neutral-200 rounded-md py-4 w-full">
-        <div className="flex gap-2 justify-center items-center text-neutral-600 text-[0.875rem] mb-4">
+      <div className="bg-gradient-to-b from-white to-[#EFEFEF] shadow-md shadow-neutral-200 rounded-md pt-4 w-full">
+        <div className="flex gap-1 px-2 justify-center items-center text-neutral-600 text-[0.875rem] mb-4">
           {currentView === "details" && (
             <button
               onClick={handleBack}
-              className="p-1 hover:bg-gray-100 rounded-full transition-all duration-300"
+              className=" hover:bg-gray-100 rounded-full transition-all duration-300"
             >
               <ChevronLeft size={18} className="text-gray-600" />
             </button>
           )}
-          {currentView === "main"
-            ? "Courses & Specializations"
-            : `${selectedItem} Specializations`}
+          {"Courses & Specializations"}
         </div>
 
         <div className="relative mb-6 px-4 lg:px-3">
@@ -236,15 +252,15 @@ export const Filters = () => {
             placeholder="Search here...."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-1.5 text-sm border-2 border-neutral-400 rounded-full focus:outline-none focus:ring-2 focus:ring-[#EC1E24]] focus:border-transparent transition-all duration-300"
+            className="w-full px-4 py-1 text-xs border border-neutral-400 rounded-full focus:outline-none focus:ring-2 focus:ring-[#EC1E24]] focus:border-transparent transition-all duration-300"
           />
           <Search
-            size={18}
-            className="absolute right-8 top-2 text-neutral-300 hover:text-[#EC1E24]"
+            size={14}
+            className="absolute right-8 top-1.5 text-neutral-300 hover:text-[#EC1E24]"
           />
         </div>
-            
-        <div className="pb-6 relative overflow-hidden ">
+
+        <div className="pb-3 relative overflow-hidden ">
           {currentView === "main" ? <MainView /> : <DetailsView />}
         </div>
       </div>

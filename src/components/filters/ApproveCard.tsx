@@ -2,7 +2,8 @@ import { useFilters } from "@/contexts/filterContext";
 import { CollapsibleCard } from "./collapsebleCard";
 
 export const ApprovalCard = () => {
-  const { selectedApproval, setSelectedApproval } = useFilters();
+  const { selectedApproval, setSelectedApproval, openIndex, toggleCard } =
+    useFilters();
   const approvals = ["UGC", "NAAC", "AICTE", "NIRF", "WES", "DEB"];
 
   const handleApprovalClick = (approval: string) => {
@@ -10,7 +11,11 @@ export const ApprovalCard = () => {
   };
 
   return (
-    <CollapsibleCard title="Approvals">
+    <CollapsibleCard
+      title="Approvals"
+      isOpen={openIndex === 0}
+      onToggle={() => toggleCard(0)}
+    >
       {approvals.map((approval) => (
         <div
           key={approval}

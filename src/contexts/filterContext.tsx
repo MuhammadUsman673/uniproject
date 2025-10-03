@@ -8,6 +8,9 @@ type FilterContextType = {
   activeFilter: string | null;
   setActiveFilter: (value: string | null) => void;
 
+  openIndex: number | null;
+  setOpenIndex: (value: number | null) => void;
+
   activeSubFilter: string | null;
   setActiveSubFilter: (value: string | null) => void;
 
@@ -24,6 +27,7 @@ type FilterContextType = {
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 
   handleClearAll: () => void;
+  toggleCard: (index: number) => void;
 };
 
 const FilterContext = createContext<FilterContextType | undefined>(undefined);
@@ -38,6 +42,12 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const [selectedApproval, setSelectedApproval] = useState<string | null>(null);
   const [cardsToShow, setCardsToShow] = useState(9);
 
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const toggleCard = (index: number) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  };
+
   const handleClearAll = () => {
     setActiveFilter(null);
     setActiveSubFilter(null);
@@ -47,8 +57,8 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     console.log(activeFilter);
-    console.log(activeSubFilter)
-  }, [activeFilter,activeSubFilter]);
+    console.log(activeSubFilter);
+  }, [activeFilter, activeSubFilter]);
 
   return (
     <FilterContext.Provider
@@ -68,6 +78,9 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
         setIsOpen,
         searchQuery,
         setSearchQuery,
+        openIndex,
+        setOpenIndex,
+        toggleCard,
       }}
     >
       {children}

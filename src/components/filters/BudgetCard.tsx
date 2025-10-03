@@ -2,7 +2,8 @@ import { useFilters } from "@/contexts/filterContext";
 import { CollapsibleCard } from "./collapsebleCard";
 
 export const BudgetCard = () => {
-  const { selectedBudget, setSelectedBudget } = useFilters();
+  const { selectedBudget, setSelectedBudget, openIndex, toggleCard } =
+    useFilters();
   const budgets = [
     "Upto 1 Lakh",
     "1 Lakh - 2 Lakhs",
@@ -15,7 +16,11 @@ export const BudgetCard = () => {
   };
 
   return (
-    <CollapsibleCard title="Budget">
+    <CollapsibleCard
+      title="Budget"
+      isOpen={openIndex === 1}
+      onToggle={() => toggleCard(1)}
+    >
       {budgets.map((budget) => (
         <div
           key={budget}

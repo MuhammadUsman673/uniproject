@@ -10,8 +10,8 @@ type CompareContextType = {
   selectedPath: string | null;
   setSelectedPath: React.Dispatch<React.SetStateAction<string | null>>;
  
-  selectedUniversity: string | null;
-  setSelectedUniversity: React.Dispatch<React.SetStateAction<string | null>>;
+  selectedUniversity: string[];
+  setSelectedUniversity: React.Dispatch<React.SetStateAction<string[]>>;
 
   selectedCourse: string | null;
   setSelectedCourse: React.Dispatch<React.SetStateAction<string | null>>;
@@ -38,7 +38,7 @@ export const CompareProvider = ({
   const [currentStep, setCurrentStep] = useState<Step>("path");
   const [selectedPath, setSelectedPath] = useState<string | null>(null);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
-  const [selectedUniversity, setSelectedUniversity] = useState<string | null>(null);
+  const [selectedUniversity, setSelectedUniversity] = useState<string[]>([]);
   const [selectedSpecialization, setSelectedSpecialization] = useState<
     string | null
   >(null);
