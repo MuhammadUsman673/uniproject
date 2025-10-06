@@ -9,7 +9,7 @@ export type UniversityCardData = {
   features: string[];
   imageUrl: string;
   logoUrl?: string;
-  tag?: string;
+  tag?: { text: string; varient?: "green" | "orange" };
   admissionClosing: string;
 };
 
@@ -23,7 +23,7 @@ export const allUniversityCardsData: UniversityCardData[] = [
     features: ["No-Cost EMI Available", "Flexible Payment Options"],
     imageUrl: "/images/cambridge.png",
     logoUrl: "/logo/Manipal.svg",
-    tag: "Trending",
+    tag: { text: "Trending" },
     budget: 10000,
     admissionClosing: "29 JULY",
     category: "UG Courses",
@@ -37,7 +37,7 @@ export const allUniversityCardsData: UniversityCardData[] = [
     features: ["Flexible Payment Options"],
     imageUrl: "/images/uni.png",
     logoUrl: "/logo/Manipal.svg",
-    tag: "Top Rated by Students",
+    tag: { text: "Top Rated by Students" },
     budget: 10000,
     admissionClosing: "29 JULY",
     category: "UG Courses",
@@ -64,7 +64,7 @@ export const allUniversityCardsData: UniversityCardData[] = [
     features: ["Scholarship Available"],
     imageUrl: "/images/uni.png",
     logoUrl: "/logo/Manipal.svg",
-    tag: "Popular Choice",
+    tag: { text: "Popular Choice", varient: "orange" },
     budget: 10000,
     admissionClosing: "29 JULY",
     category: "PG Courses",
@@ -105,7 +105,7 @@ export const allUniversityCardsData: UniversityCardData[] = [
     features: ["Modern Curriculum"],
     imageUrl: "/images/cambridge.png",
     logoUrl: "/logo/Manipal.svg",
-    tag: "New Admission",
+    tag: { text: "New Admission" },
     admissionClosing: "29 JULY",
     category: "PG Courses",
   },
@@ -132,7 +132,7 @@ export const allUniversityCardsData: UniversityCardData[] = [
     features: ["Industry Ready Courses"],
     imageUrl: "/images/cambridge.png",
     logoUrl: "/logo/Manipal.svg",
-    tag: "Highly Rated",
+    tag: { text: "Highly Rated", varient: "orange" },
     admissionClosing: "29 JULY",
     category: "Finance",
   }, // Extra dummy cards for "View More"

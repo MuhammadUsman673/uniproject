@@ -7,6 +7,7 @@ import App from "./App";
 import { FilterProvider } from "./contexts/filterContext";
 import { BrowserRouter } from "react-router-dom";
 import { CompareProvider } from "./contexts/compareContext";
+import { SelectionProvider } from "./contexts/selectionContext";
 
 const rootElement = document.getElementById("root");
 if (rootElement) {
@@ -14,9 +15,11 @@ if (rootElement) {
     <StrictMode>
       <FilterProvider>
         <CompareProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+          <SelectionProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </SelectionProvider>
         </CompareProvider>
       </FilterProvider>
     </StrictMode>

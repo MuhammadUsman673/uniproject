@@ -3,6 +3,7 @@ import { useState } from "react";
 import { courseData } from "@/store/courseData";
 import clsx from "clsx";
 import { useFilters } from "@/contexts/filterContext";
+// import { motion } from "framer-motion";
 
 export const Filters = () => {
   const {
@@ -12,17 +13,17 @@ export const Filters = () => {
     activeSubFilter,
     searchQuery,
     setSearchQuery,
+    currentView,
+    setCurrentView,
+    expandedFilter,
+    setExpandedFilter,
   } = useFilters();
 
-  const [currentView, setCurrentView] = useState<"main" | "details">("main");
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [selectedParentFilter, setSelectedParentFilter] = useState<
     string | null
   >(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [expandedFilters, setExpandedFilters] = useState<Set<string>>(
-    new Set()
-  );
 
   const filters = Object.keys(courseData).map((name) => ({
     name,
@@ -45,14 +46,7 @@ export const Filters = () => {
 
     if (hasSubItems) {
       setActiveFilter(filterName === activeFilter ? null : filterName);
-
-      const newExpanded = new Set(expandedFilters);
-      if (newExpanded.has(filterName)) {
-        newExpanded.delete(filterName);
-      } else {
-        newExpanded.add(filterName);
-      }
-      setExpandedFilters(newExpanded);
+      setExpandedFilter(filterName);
     } else {
       setActiveFilter(filterName === activeFilter ? null : filterName);
     }
@@ -96,10 +90,10 @@ export const Filters = () => {
     });
 
     return (
-      <div className="space-y-1">
+      <div className="space-y-1 h-fit">
         {filtered.map((filter, index) => {
           const filterKey = filter.name as keyof typeof courseData;
-          const isExpanded = expandedFilters.has(filter.name);
+          const isExpanded = expandedFilter == filter.name;
           const subItems = courseData[filterKey]?.subItems || [];
 
           return (

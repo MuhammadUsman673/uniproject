@@ -1,5 +1,5 @@
 import { useResponsive } from "@/hooks/use-responsive";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 type FilterContextType = {
   isOpen: boolean;
@@ -8,8 +8,8 @@ type FilterContextType = {
   activeFilter: string | null;
   setActiveFilter: (value: string | null) => void;
 
-  openIndex: number | null;
-  setOpenIndex: (value: number | null) => void;
+  openIndex: Set<number>;
+  setOpenIndex: (value: Set<number>) => void;
 
   activeSubFilter: string | null;
   setActiveSubFilter: (value: string | null) => void;
@@ -26,6 +26,12 @@ type FilterContextType = {
   searchQuery: string;
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 
+  currentView: "main" | "details";
+  setCurrentView: React.Dispatch<React.SetStateAction<"main" | "details">>;
+
+  expandedFilter: string | null;
+  setExpandedFilter: React.Dispatch<React.SetStateAction<string | null>>;
+
   handleClearAll: () => void;
   toggleCard: (index: number) => void;
 };
@@ -41,11 +47,20 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const [selectedBudget, setSelectedBudget] = useState<string | null>(null);
   const [selectedApproval, setSelectedApproval] = useState<string | null>(null);
   const [cardsToShow, setCardsToShow] = useState(9);
-
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [currentView, setCurrentView] = useState<"main" | "details">("main");
+  const [openIndex, setOpenIndex] = useState<Set<number>>(new Set());
+  const [expandedFilter, setExpandedFilter] = useState<string | null>(null);
 
   const toggleCard = (index: number) => {
-    setOpenIndex((prev) => (prev === index ? null : index));
+    setOpenIndex((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
   };
 
   const handleClearAll = () => {
@@ -53,12 +68,10 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
     setActiveSubFilter(null);
     setSelectedBudget(null);
     setSelectedApproval(null);
+    setCurrentView("main");
+    setExpandedFilter(null);
+    setOpenIndex(() => new Set());
   };
-
-  useEffect(() => {
-    console.log(activeFilter);
-    console.log(activeSubFilter);
-  }, [activeFilter, activeSubFilter]);
 
   return (
     <FilterContext.Provider
@@ -81,6 +94,10 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
         openIndex,
         setOpenIndex,
         toggleCard,
+        currentView,
+        setCurrentView,
+        expandedFilter,
+        setExpandedFilter,
       }}
     >
       {children}

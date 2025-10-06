@@ -18,7 +18,7 @@ export const BudgetCard = () => {
   return (
     <CollapsibleCard
       title="Budget"
-      isOpen={openIndex === 1}
+      isOpen={openIndex.has(1)}
       onToggle={() => toggleCard(1)}
     >
       {budgets.map((budget) => (

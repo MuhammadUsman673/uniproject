@@ -15,8 +15,6 @@ const Main = () => {
   const { isMobile, isTablet } = useResponsive();
   const [rowCount, setRowCount] = useState(3);
 
-
-
   const {
     activeFilter,
     activeSubFilter,
@@ -29,7 +27,6 @@ const Main = () => {
     handleClearAll,
     searchQuery,
     setSearchQuery,
-
   } = useFilters();
 
   const handleViewMore = () => setCardsToShow((prev) => prev + 9);
@@ -82,7 +79,7 @@ const Main = () => {
       );
 
       // Search in any other relevant card properties (add as needed)
-      const TagMatch = card.tag?.toLowerCase().includes(query);
+      const TagMatch = card.tag?.text.toLowerCase().includes(query);
       const ApprovalMatch = card.approvals?.toLowerCase().includes(query);
 
       // Return true if ANY field matches
@@ -138,7 +135,7 @@ const Main = () => {
           {/* Clear all */}
           <button
             className={clsx(
-              "text-neutral-600 text-sm flex items-center gap-2 hover:text-[#EC1E24] transition-all duration-300 transform hover:scale-105 active:scale-95 px-4 py-2 rounded-lg bg-white border",
+              "text-neutral-600 group text-xs flex items-center gap-2 hover:text-[#EC1E24] transition-all duration-300 transform hover:scale-105 active:scale-95 px-2 py-1  rounded-lg bg-white border",
               !isOpen && (isTablet || isMobile) && "hidden"
             )}
             onClick={() => {
@@ -146,7 +143,12 @@ const Main = () => {
               setSearchQuery("");
             }}
           >
-            <BrushCleaningIcon size={15} />
+            <img src="/icons/normal/clean.svg" className="group-hover:hidden" />
+            <img
+              src="/icons/selected/clean.svg"
+              className="group-hover:block hidden"
+            />
+
             <span>Clear all</span>
           </button>
 
@@ -199,7 +201,7 @@ const Main = () => {
 
         {/* View More */}
         {cardsToShow < filteredCards.length && (
-          <div className="flex justify-center mt-12 mb-8">
+          <div className="flex justify-center mt-12 mb-0">
             <Button
               size="lg"
               onClick={handleViewMore}

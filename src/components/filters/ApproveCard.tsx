@@ -13,7 +13,7 @@ export const ApprovalCard = () => {
   return (
     <CollapsibleCard
       title="Approvals"
-      isOpen={openIndex === 0}
+      isOpen={openIndex.has(0)}
       onToggle={() => toggleCard(0)}
     >
       {approvals.map((approval) => (

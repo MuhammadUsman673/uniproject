@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { ChevronDown } from "lucide-react";
+// import { motion } from "framer-motion";
 
 type CollapsibleCardProps = {
   title: string;
@@ -18,12 +19,16 @@ export const CollapsibleCard = ({
     <div
       className={clsx(
         "mt-4 px-5 bg-gradient-to-b from-white to-[#EFEFEF] shadow-md shadow-neutral-200 rounded-md",
-      isOpen && "py-4 " )}
+        isOpen && "py-4 "
+      )}
     >
       {/* Header */}
       <div
         onClick={onToggle}
-        className={clsx("flex justify-between items-center cursor-pointer",!isOpen && "py-4")}
+        className={clsx(
+          "flex justify-between items-center cursor-pointer",
+          !isOpen && "py-4"
+        )}
       >
         <h2 className="text-[0.875rem] text-[#282529]/80">{title}</h2>
         <span
