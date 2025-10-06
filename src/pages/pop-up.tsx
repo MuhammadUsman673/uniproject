@@ -2,9 +2,17 @@ import { useState } from "react";
 import { ArrowLeft, Star } from "lucide-react";
 import clsx from "clsx";
 
+type TabType = {
+  active: string;
+  previous: string | null;
+};
+
 export default function NMIMSPopup() {
   const [open, setOpen] = useState(true);
-  const [activeTab, setActiveTab] = useState("approvals");
+  const [tabState, setTabState] = useState<TabType>({
+    active: "approvals",
+    previous: null,
+  });
 
   if (!open) {
     return (
@@ -55,9 +63,11 @@ export default function NMIMSPopup() {
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() =>
+                setTabState({ active: tab.id, previous: tabState.active })
+              }
               className={`text-xs md:text-base px-2 md:px-6 py-2 font-bold transition-colors rounded-md ${
-                activeTab === tab.id
+                tabState.active === tab.id
                   ? "bg-white text-red-700  "
                   : " text-white hover:bg-red-800"
               }`}
@@ -81,7 +91,16 @@ export default function NMIMSPopup() {
           <div className="flex gap-8 p-4 pt-12 md:p-10">
             {/* Left Panel */}
             <div className="text-white space-y-3 md:w-72 hidden md:block">
-              <button className="flex items-center gap-2 text-white hover:underline mb-11">
+              <button
+                onClick={() =>
+                  setTabState((prev) => ({
+                    active: prev.previous ?? prev.active,
+                    previous: null,
+                  }))
+                }
+                disabled={tabState.previous == null}
+                className="flex items-center gap-2 text-white hover:underline mb-11 disabled:text-neutral-300"
+              >
                 <ArrowLeft className="w-4 h-4" />
                 <span className="text-[1rem]">Back</span>
               </button>
@@ -132,13 +151,13 @@ export default function NMIMSPopup() {
 
             {/* Right Panel */}
             <div className="bg-gradient-to-b from-red-50 to-red-200 rounded-2xl h-fit md:h-[31.25rem] w-full  md:w-[34.75rem] pt-8 p-0 md:px-8  ">
-              {activeTab === "approvals" && <Approvals />}
+              {tabState.active === "approvals" && <Approvals />}
 
-              {activeTab === "courses" && <Courses />}
+              {tabState.active === "courses" && <Courses />}
 
-              {activeTab === "campus" && <Campus />}
+              {tabState.active === "campus" && <Campus />}
 
-              {activeTab === "ratings" && <Ratings />}
+              {tabState.active === "ratings" && <Ratings />}
             </div>
           </div>
         </div>
@@ -291,7 +310,9 @@ function Campus() {
               </div>
 
               <div className="flex-1">
-                <p className="text-[#282529] text-sm font-medium">{apr.title}</p>
+                <p className="text-[#282529] text-sm font-medium">
+                  {apr.title}
+                </p>
               </div>
             </div>
           );
