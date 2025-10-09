@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="237" height="49" viewBox="0 0 237 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter color-interpolation-filters="sRGB" x="-224" y="-36" width="226" height="38" id="filter_1">
+      <feFlood flood-opacity="0" result="BackgroundImageFix_1" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" in="SourceAlpha" />
+      <feMorphology radius="1" operator="dilate" in="SourceAlpha" />
+      <feOffset dx="0" dy="0" />
+      <feGaussianBlur stdDeviation="1.5" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.694 0 0 0 0 1 0 0 0 0 0.608 0 0 0 0.161 0" />
+      <feBlend mode="normal" in2="BackgroundImageFix_1" result="Shadow_2" />
+      <feBlend mode="normal" in="SourceGraphic" in2="Shadow_2" result="Shape_3" />
+    </filter>
+  </defs>
+  <g fill="#FFFFFF" filter="url(#filter_1)" transform="translate(5.5 5.5)">
+    <path d="M222 0C224.209 0 226 1.79056 226 4L226 34C226 36.2094 224.209 38 222 38L4 38C1.79056 38 0 36.2094 0 34L0 4C0 1.79056 1.79056 0 4 0L222 0Z" />
+    <path d="M226 4C226 1.79056 224.209 0 222 0L4 0C1.79056 0 0 1.79056 0 4L0 34C0 36.2094 1.79056 38 4 38L222 38C224.209 38 226 36.2094 226 34L226 4ZM4 0.999999L222 1Q225 1 225 4L225 34Q225 37 222 37L4 37Q1 37 1 34L1 4Q1.00003 1 4 0.999999Z" fill="#1FC622" fill-rule="evenodd" />
+  </g>
+</svg>
