@@ -4,7 +4,7 @@
       <span class="text-theme">Courses</span> of NMIMS CDOE
     </h2>
     <div class="overflow-y-scroll overflow-x-hidden lg:-ml-5 lg:-mr-12  ">
-      <div class="grid grid-cols-2 gap-2 place-centent-center lg:px-15 max-w-[29.44rem] max-h-[24rem]">
+      <div class="grid grid-cols-2 gap-2 place-centent-center lg:px-15  lg:max-w-[29.44rem] max-h-[24rem]">
         <div
           v-for="(course, idx) in courses"
           :key="idx"

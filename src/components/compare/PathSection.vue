@@ -4,7 +4,7 @@ import { useCompareStore } from "@/store/compareStore";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-
+import "@/../public/css/styled-scroll.css"
 const compareStore = useCompareStore();
 const { selectedPath } = storeToRefs(compareStore);
 const { setSelectedPath, handleNext } = compareStore;

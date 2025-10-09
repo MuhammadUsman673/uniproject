@@ -26,10 +26,11 @@
           tag.varient === 'orange'
             ? 'text-white bg-[#F97000]'
             : 'bg-[#D9F9A5] text-[#0B8F4F]',
-          shouldFlash ? 'animate-flash' : '',
+          // shouldFlash ? 'animate-flash' : '',
         ]"
       >
         {{ tag.text }}
+        <div class="h-2 w-2 bg-[#fff30e] -top-1 absolute -right-0.5 rounded-full animate-pulse"></div>
       </div>
     </div>
 

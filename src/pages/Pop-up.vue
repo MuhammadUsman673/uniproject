@@ -98,22 +98,28 @@
             </div>
 
             <!-- Ranking Badge -->
-            <div class="w-fit">
-              <img src="/logo/ranking.png" class="animate-flash" />
+            <div class="w-fit relative">
+              <img src="/logo/ranking.png" />
+              <div
+                class="h-2 w-2 bg-[#fff30e] -top-0 absolute -right-0 rounded-full animate-pulse"
+              ></div>
             </div>
 
             <!-- Tags -->
             <div
-              class="flex flex-wrap w-64 gap-2 text-[0.5rem] text-black [&>*]:px-2 [&>*]:py-0.5 [&>*]:bg-white [&>*]:rounded-full"
+              class="flex  flex-wrap w-64 gap-2 text-[0.5rem] text-black [&>*]:px-2 [&>*]:py-0.5 [&>*]:bg-white [&>*]:rounded-full"
             >
               <span
                 v-for="tag in LEFT_PANEL_DATA.tags"
                 :key="tag.text"
                 :class="{
-                  '!bg-[#D9F9A5] !text-[#0B8F4F] animate-flash font-bold': tag.highlight,     
+                  '!bg-[#D9F9A5] !text-[#0B8F4F] font-bold relative': tag.highlight,
                 }"
               >
                 {{ tag.text }}
+                <div
+                  class="h-2 w-2 bg-[#fff30e] -top-1 absolute -right-0.5 rounded-full animate-pulse"
+                ></div>
               </span>
             </div>
           </div>
