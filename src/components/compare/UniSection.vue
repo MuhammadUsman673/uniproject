@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useCompareStore } from "@/store/compareStore";
 import { storeToRefs } from "pinia";
-
+import "@/../public/css/styled-scroll.css"
 const compareStore = useCompareStore();
 const { selectedUniversity } = storeToRefs(compareStore);
 const { handlePrevious, toggleUniversity } = compareStore;
+
+console.log(selectedUniversity.value.length);
 
 const universities = [
   { id: "u1", icon: "/icons/u1.png" },
@@ -32,12 +34,12 @@ const universities = [
         </CardTitle>
       </CardHeader>
 
-      <CardContent class="space-y-6">
-        <div class="grid grid-cols-2 gap-2">
+      <CardContent class="space-y-6 ">
+        <div class="grid grid-cols-2 gap-2 fancy-scrollbar overflow-y-scroll max-h-[24rem]">
           <Card
             v-for="university in universities"
             :key="university.id"
-            class="cursor-pointer transition-all shadow-none py-8 border "
+            class="cursor-pointer transition-all shadow-none py-8 border"
             @click="toggleUniversity(university.id)"
           >
             <CardContent
@@ -68,6 +70,7 @@ const universities = [
             variant="destructive"
             size="lg"
             class="flex-1 text-lg font-medium h-[3.438rem]"
+            :disabled="selectedUniversity?.length == 0"
           >
             Compare
           </Button>
@@ -76,3 +79,4 @@ const universities = [
     </Card>
   </div>
 </template>
+

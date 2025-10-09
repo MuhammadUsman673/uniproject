@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useCompareStore } from "@/store/compareStore";
 import { storeToRefs } from "pinia";
+import "@/../public/css/styled-scroll.css"
 
 const compareStore = useCompareStore();
 const { selectedCourse } = storeToRefs(compareStore);
@@ -29,7 +30,7 @@ const courses = [
       </CardHeader>
 
       <CardContent class="space-y-6">
-        <div class="grid grid-cols-2 gap-2">
+        <div class="grid grid-cols-2 gap-2 fancy-scrollbar overflow-y-scroll max-h-[24rem]">
           <Card
             v-for="course in courses"
             :key="course.id"
@@ -66,6 +67,7 @@ const courses = [
           <Button
             variant="destructive"
             size="lg"
+            :disabled="!selectedCourse"
             @click="handleNext"
             class="flex-1 text-lg font-medium h-[3.438rem]"
           >

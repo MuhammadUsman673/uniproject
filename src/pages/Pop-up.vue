@@ -99,7 +99,7 @@
 
             <!-- Ranking Badge -->
             <div class="w-fit">
-              <img src="/logo/ranking.png" />
+              <img src="/logo/ranking.png" class="animate-flash" />
             </div>
 
             <!-- Tags -->
@@ -110,7 +110,7 @@
                 v-for="tag in LEFT_PANEL_DATA.tags"
                 :key="tag.text"
                 :class="{
-                  '!bg-[#D9F9A5] !text-[#0B8F4F] font-bold': tag.highlight,
+                  '!bg-[#D9F9A5] !text-[#0B8F4F] animate-flash font-bold': tag.highlight,     
                 }"
               >
                 {{ tag.text }}
@@ -140,6 +140,7 @@ import Courses from "@/components/pop-up/Courses.vue";
 import Ratings from "@/components/pop-up/Ratings.vue";
 import { ref, reactive, defineComponent } from "vue";
 
+const shouldFlash = ref(true);
 const open = ref(true);
 const tabState = reactive({
   active: "approvals",
@@ -185,6 +186,20 @@ function goBack() {
     tabState.previous = null;
   }
 }
-
-
 </script>
+
+<style scoped>
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.animate-flash {
+  animation: flash 1s infinite ease-in-out;
+}
+</style>

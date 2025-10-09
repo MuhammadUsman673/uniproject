@@ -41,7 +41,19 @@ const studyPaths = [
     s_icon_path: "/icons/selected/law.svg",
   },
   {
-    id: "doctorate",
+    id: "doctorfate",
+    label: "Doctorate/Ph.D.",
+    n_icon_path: "/icons/normal/doctor.svg",
+    s_icon_path: "/icons/selected/doctor.svg",
+  },
+  {
+    id: "doctotrate",
+    label: "Doctorate/Ph.D.",
+    n_icon_path: "/icons/normal/doctor.svg",
+    s_icon_path: "/icons/selected/doctor.svg",
+  },
+  {
+    id: "docto8rate",
     label: "Doctorate/Ph.D.",
     n_icon_path: "/icons/normal/doctor.svg",
     s_icon_path: "/icons/selected/doctor.svg",
@@ -60,8 +72,8 @@ const studyPaths = [
         >
       </CardHeader>
 
-      <CardContent class="space-y-6">
-        <div class="grid grid-cols-2 gap-2">
+      <CardContent class="space-y-6  ">
+        <div class="grid grid-cols-2 gap-2  fancy-scrollbar overflow-y-scroll max-h-[24rem]">
           <Card
             v-for="path in studyPaths"
             :key="path.id"
@@ -97,6 +109,7 @@ const studyPaths = [
           variant="destructive"
           size="lg"
           @click="handleNext"
+          :disabled="!selectedPath"
           class="w-full text-lg font-medium h-[3.438rem]"
         >
           Next
@@ -105,3 +118,5 @@ const studyPaths = [
     </Card>
   </div>
 </template>
+
+

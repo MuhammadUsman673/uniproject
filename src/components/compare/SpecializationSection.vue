@@ -61,7 +61,7 @@ const specializations = [
       </CardHeader>
 
       <CardContent class="space-y-6">
-        <div class="grid grid-cols-2 gap-2">
+        <div class="grid grid-cols-2 gap-2 fancy-scrollbar overflow-y-scroll max-h-[24rem]">
           <Card
             v-for="specialization in specializations"
             :key="specialization.id"
@@ -113,6 +113,7 @@ const specializations = [
             size="lg"
             @click="handleNext"
             class="flex-1 text-lg font-medium h-[3.438rem]"
+                      :disabled="!selectedSpecialization"
           >
             Next
           </Button>

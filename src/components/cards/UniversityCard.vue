@@ -26,6 +26,7 @@
           tag.varient === 'orange'
             ? 'text-white bg-[#F97000]'
             : 'bg-[#D9F9A5] text-[#0B8F4F]',
+          shouldFlash ? 'animate-flash' : '',
         ]"
       >
         {{ tag.text }}
@@ -105,7 +106,7 @@
     <div
       v-if="admissionClosing"
       v-html="admissionTag"
-      class=" text-[0.625rem] z-10"
+      class="text-[0.625rem] z-10"
     ></div>
   </div>
 </template>
@@ -113,7 +114,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useSelectionStore } from "@/store/selectedStore"; // Pinia store
-
+import { ref } from 'vue'
 interface Tag {
   text: string;
   varient?: "green" | "orange";
@@ -137,7 +138,7 @@ const props = defineProps<Props>();
 // ✅ Correct store usage (Pinia)
 const selectionStore = useSelectionStore();
 const selectedItems = computed(() => selectionStore.selectedItems);
-
+const shouldFlash = ref(true)
 const isSelected = computed(() => selectedItems.value.has(props.index));
 const isMaxReached = computed(
   () => selectedItems.value.size >= 3 && !isSelected.value
@@ -175,3 +176,19 @@ const admissionTag = computed(() => {
   }
 });
 </script>
+
+<style scoped>
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.animate-flash {
+  animation: flash 1s infinite ease-in-out;
+}
+</style>
