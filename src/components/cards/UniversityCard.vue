@@ -115,7 +115,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useSelectionStore } from "@/store/selectedStore"; // Pinia store
-import { ref } from 'vue'
+// import { ref } from 'vue'
 interface Tag {
   text: string;
   varient?: "green" | "orange";
@@ -139,7 +139,7 @@ const props = defineProps<Props>();
 // ✅ Correct store usage (Pinia)
 const selectionStore = useSelectionStore();
 const selectedItems = computed(() => selectionStore.selectedItems);
-const shouldFlash = ref(true)
+// const shouldFlash = ref(true)
 const isSelected = computed(() => selectedItems.value.has(props.index));
 const isMaxReached = computed(
   () => selectedItems.value.size >= 3 && !isSelected.value
