@@ -25,12 +25,12 @@ type SectionType = {
     <hr class="border-[#EC1E24] border-2 w-50" />
     <ul class="grid grid-cols-2 gap-y-3 mt-3">
       <li v-for="(link, i) in section.links" :key="i">
-        <a :href="link.href" class="hover:text-neutral-200">
+        <router-link :to="link.href" class="hover:text-neutral-200">
           {{ link.text }}
           <span v-if="link.badge" class="bg-green-500 p-0.5 rounded text-xs">{{
             link.badgeText
           }}</span>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>

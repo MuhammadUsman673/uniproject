@@ -16,7 +16,7 @@ import { FOOTER_CONFIG } from "@/store/footer";
     <ul class="space-y-3">
       <li v-for="(item, i) in program.items" :key="i">{{ item }}</li>
       <li v-if="showViewAll">
-        <a href="#" class="hover:text-neutral-200">View All</a>
+        <router-link to="#" class="hover:text-neutral-200">View All</router-link>
       </li>
     </ul>
   </div>
