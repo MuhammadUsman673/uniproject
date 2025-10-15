@@ -2,7 +2,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-
 // import "@/../public/css/no-scroll.css";
 import { Checkbox } from "@/components/ui/checkbox";
 import BasicDetails from "@/components/chartCards/basic.vue";
