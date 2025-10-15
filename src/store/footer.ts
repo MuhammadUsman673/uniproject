@@ -56,7 +56,7 @@ export const FOOTER_CONFIG = {
         { text: "Privacy Policy", href: "#" },
         { text: "Contact Us", href: "#" },
         { text: "Terms & Conditions", href: "#" },
-        { text: "FAQs", href: "#" },
+        { text: "FAQs", href: "/faq" },
         { text: "Disclaimer", href: "#" },
         { text: "Blogs", href: "#" },
         {
