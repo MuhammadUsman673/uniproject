@@ -24,12 +24,12 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <div
-    class="w-[23rem] rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-200"
+    class="w-full mx-auto  md:max-w-[23rem]  overflow-hidden bg-white shadow-none   transition-all duration-200"
   >
     <img
       :src="props.image_url"
       :alt="props.title"
-      class="h-[11.5rem] w-full object-cover"
+      class="min-h-[11.5rem] w-full object-cover rounded-xl"
     />
 
     <div class="px-5">
@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<Props>(), {
         <span>{{ props.after }}</span>
       </div>
 
-      <h2 class="text-[1.5rem] font-semibold line-clamp-3 text-[#282529]">
+      <h2 class="text-[1.250rem] md:text-[1.5rem] font-semibold line-clamp-3 text-[#282529]">
         {{ props.title }}
       </h2>
 
@@ -54,5 +54,7 @@ const props = withDefaults(defineProps<Props>(), {
         </span>
       </div>
     </div>
+
+   
   </div>
 </template>

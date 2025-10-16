@@ -159,3 +159,50 @@ export const LGCardData = [
     views: "25k",
   },
 ];
+
+export const carousaData = [
+  {
+    id: 1,
+    text: "Compare & Explore Verified Online Universities at one place with CS Clikpick!",
+    highLighted: "Clikpick!",
+  },
+  {
+    id: 2,
+    text: "Compare & Explore Verified Online Universities at one place with CS Clikpick!",
+    highLighted: "Clikpick!",
+  },
+  {
+    id: 3,
+    text: "Compare & Explore Verified Online Universities at one place with CS Clikpick!",
+    highLighted: "Clikpick!",
+  },
+  {
+    id: 4,
+    text: "Compare & Explore Verified Online Universities at one place with CS Clikpick!",
+    highLighted: "CS Clikpick!",
+  },
+  {
+    id: 5,
+    text: "Compare & Explore Verified Online Universities at one place with CS Clikpick!",
+    highLighted: "Clikpick!",
+  },
+  {
+    id: 6,
+    text: "Compare & Explore Verified Online Universities at one place with CS Clikpick!",
+    highLighted: "Clikpick!",
+  },
+  {
+    id: 7,
+    text: "Compare & Explore Verified Online Universities at one place with CS Clikpick!",
+    highLighted: "Clikpick!",
+  },
+];
+
+export const categories = [
+  "UGC Updates",
+  "Online MBA",
+  "Top Online Universities",
+  "UG Program",
+  "PG Program",
+  "After 12th",
+];

@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class="flex gap-6">
+  <div class="flex gap-4 md:gap-6">
     <img
       :src="props.image_url"
       class="w-[9.813rem] h-[4.875rem]"
@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
       <span :class="['text-[0.688rem]', props.color]">{{
         props.courseType
       }}</span>
-      <h6 class="text-[1.125rem] font-medium line-clamp-2 ">
+      <h6 class="text-[0.879rem] md:text-[1.125rem] font-medium line-clamp-2 ">
         {{ props.title }}
       </h6>
     </div>

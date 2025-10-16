@@ -23,7 +23,7 @@ const form = ref({
 </script>
 
 <template>
-  <section class="w-full bg-white py-8 lg:py-20 px-4 lg:px-24">
+  <section class="w-full bg-white py-8 lg:py-20 px-4 lg:px-24 mt-10">
     <!-- Header -->
     <div class="text-center mb-12">
       <h2
